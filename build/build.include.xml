@@ -1,0 +1,16 @@
+<project>
+	<trycatch>
+		<try>	
+			<!-- Include global build properties -->
+			<include buildfile="build.global.properties.xml" />	
+			
+			<!-- Include solution build script -->
+			<include buildfile="build.solution.xml" />	
+		</try>
+	
+		<!-- Terminate build process if including one of the files failed. -->
+		<catch property="failure">
+			<fail message="${failure}" />
+		</catch>
+	</trycatch>	
+</project>

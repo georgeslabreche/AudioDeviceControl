@@ -1,0 +1,26 @@
+<project>
+	<!--
+	=================================================================================================
+		SOLUTION DEPENDENT TASKS (i.e. IMPLEMENT THESE TASKS TO MATCH THAT OF THE SOLUTION)
+	=================================================================================================
+	-->
+	
+	<target name="compile-solution"
+		depends="-prepare-compile-solution"
+		description="Compile the solution's projects"> 
+		
+		<!-- Call build "all" tasks of the projects. -->
+		<nant buildfile="${src.dir}/AudioDeviceControl/build.lib.project.xml" target="all" />
+		
+	</target>
+	
+	<target name="test-solution"
+		depends="-prepare-test, compile-solution"
+		description="Test the solution's projects"> 
+
+		<!-- Call "test" task of the project. -->
+		<nant buildfile="${test.dir}/AudioDeviceControl.Test/build.test.project.xml" target="test" />
+		 
+		
+	</target>
+</project>

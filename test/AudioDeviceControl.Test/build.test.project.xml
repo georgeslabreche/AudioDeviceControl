@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="AudioDeviceControl.Test" default="test">
+
+	
+	<target name="compile-test"
+			description="compiles the project">
+
+		<csc target="library" output="${dist.dir}/${project::get-name()}.dll" platform="${platform}" debug="${debug}">
+		
+			<!-- List the libraries the project needs to reference to -->
+			<references>
+				<include name="${dist.dir}/*.dll" />
+			</references>
+
+			<!-- List sources to exclude and include for compilation -->
+			<sources> 
+				<include name="/**/*.cs" />
+			</sources>
+		</csc>
+		
+	</target>
+	
+	<target name="test"
+			depends="compile-test"
+			description="Run the project's unit test cases">
+			
+		<exec 	basedir="."
+			managed="true"
+			workingdir="${dist.dir}"
+			program="${nunit-console.exe}"
+			commandline="${project::get-name()}.dll /xml=${reports.nunit.dir}/${project::get-name()}.Test-Result.xml" />            
+			  
+	</target>
+</project>

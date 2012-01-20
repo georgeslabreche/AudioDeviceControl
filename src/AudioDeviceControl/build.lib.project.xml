@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="AudioDeviceControl" default="all">
+
+	<!--  Setting .NET framework 2.0 as the current framework -->
+	<property name="nant.settings.currentframework" value="net-2.0"/>
+
+	<target name="all"
+		description="Compiles the project">
+			
+		<csc target="library" output="${dist.dir}/${project::get-name()}.dll" platform="${platform}" debug="${debug}" optimize="${optimize}">
+		
+			<!-- List the libraries the project needs to reference to -->
+			<references>
+				<include name="${lib.dir}/*.dll" />
+			</references>
+
+			<!-- List sources to include and exclude for compilation -->
+			<sources> 
+				<include name="**/*.cs" />
+			</sources>
+		</csc>
+		
+	</target>
+
+</project>

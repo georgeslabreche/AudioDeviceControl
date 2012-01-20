@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioDeviceControl.Test", "test\AudioDeviceControl.Test\AudioDeviceControl.Test.csproj", "{2805EE85-8D44-4732-8ACA-EE1C717D871C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioDeviceControl", "src\AudioDeviceControl\AudioDeviceControl.csproj", "{22E3818E-17D4-4918-B10C-6A1DC277CEE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioDeviceConsole", "test\AudioDeviceConsole\AudioDeviceConsole.csproj", "{70A0172A-FA24-4CC9-A365-804E018661B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2805EE85-8D44-4732-8ACA-EE1C717D871C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2805EE85-8D44-4732-8ACA-EE1C717D871C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2805EE85-8D44-4732-8ACA-EE1C717D871C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2805EE85-8D44-4732-8ACA-EE1C717D871C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22E3818E-17D4-4918-B10C-6A1DC277CEE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22E3818E-17D4-4918-B10C-6A1DC277CEE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22E3818E-17D4-4918-B10C-6A1DC277CEE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22E3818E-17D4-4918-B10C-6A1DC277CEE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70A0172A-FA24-4CC9-A365-804E018661B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70A0172A-FA24-4CC9-A365-804E018661B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70A0172A-FA24-4CC9-A365-804E018661B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70A0172A-FA24-4CC9-A365-804E018661B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

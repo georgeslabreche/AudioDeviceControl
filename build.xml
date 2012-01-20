@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="AudioDeviceControl" default="all">
+
+	<!--
+	========================
+		INCLUDES
+	========================
+	-->
+	<trycatch>
+		<try>
+			<!-- Include include file -->
+			<include buildfile="build/build.include.xml" />	
+		</try>
+	
+		<!-- Terminate build process if including the include files failed. -->
+		<catch property="failure">
+			<fail message="${failure}" />
+		</catch>
+	</trycatch>	
+	
+
+	<!--
+	=========================================================================================================================
+		ACCESSIBLE GLOBAL TASKS
+	=========================================================================================================================
+	-->
+	
+	<target name="clean" 
+		description="Remove all generated files">
+		
+		<delete dir="${dist.dir}" />	
+		<mkdir dir="${dist.dir}" />
+		
+		<delete dir="${reports.dir}" />	
+		<mkdir dir="${reports.dir}" />
+		
+	</target> 
+	
+
+	<target name="all"
+		depends="clean"
+		description="Executes the complete build process" >
+
+		<call target="-compile-test-solution" />
+		<call target="-fxcop-analysis" />
+		<call target="-stylecop-analysis" />
+	</target>
+
+	
+	
+	<!--
+	===========================================================================================================================
+		INACCESSIBLE GLOBAL TASKS
+	===========================================================================================================================
+	-->
+	
+	<target name="-compile-test-solution" 
+		depends="compile-solution, test-solution"
+		description="Compile and test solution"/>
+
+	<target name="-fxcop-analysis" 
+		description="Assembly analysis for proper code conformance" >
+
+		<mkdir dir="${reports.fxcop.dir}" />
+			
+		<echo>FxCop Static Analysis of assembly</echo>
+		<exec 	program="${fxcop.exe}" 
+			failonerror="false"
+			commandline="/o:${fxcop-report.xml} /f:${dist.dir}\${project::get-name()}.dll /d:${lib.dir}"/>
+	</target>
+	
+	<target name="-stylecop-analysis" 
+		description="Static analysis for proper code styling" >
+
+		<mkdir dir="${reports.stylecop.dir}" />
+		<loadtasks assembly="${tools.dir}\stylecop\StyleCopCmd.Core.dll" />
+			
+		<echo>StyleCop Static Analysis of Source Code</echo>
+
+		<styleCopCmd outputXmlFile="${stylecop-report.xml}"
+				 transformFile="${stylecop-report.xsl}"
+				 recursionEnabled="true"
+				 processorSymbols="RELEASE,CODE_ANALYSIS"
+				 ignorePatterns="AssemblyInfo\.cs,GlobalSuppressions\.cs">
+
+			<!-- scan the source directory -->
+			<directories>
+				<include name="${src.dir}" />
+			</directories>
+
+		</styleCopCmd>
+	</target>
+
+	<target name="-prepare-test"
+		description="Create NUnit reports directory">
+		
+		<delete dir="${reports.nunit.dir}" />	
+		<mkdir dir="${reports.nunit.dir}" />
+	</target> 
+			
+	<target name="-prepare-compile-solution">
+			
+		<!-- copy libraries into build directory -->
+		<copy todir="${dist.dir}">
+			<fileset basedir="${lib.dir}">
+				<include name="**\*.*" />
+			</fileset>
+		</copy> 
+	</target>
+	
+</project>

@@ -1,0 +1,37 @@
+<properties>
+	
+	<!--
+	======================================================================================================================
+		GLOBAL BUILD SCRIPT PROPETIES
+	======================================================================================================================
+	-->
+	
+	<!--  Setting .NET framework 2.0 as the current framework -->
+	<property name="nant.settings.currentframework" value="net-2.0"/>
+	
+	<!-- compilation properties -->
+	<property name="debug" value="false" overwrite="true" />
+	<property name="optimize" value="true" overwrite="true" />
+	<property name="platform" value="x86" overwrite="true" />
+
+	<!-- directories  -->
+	<property name="tools.dir" value="${project::get-base-directory()}/tools" />
+	<property name="dist.dir" value="${project::get-base-directory()}/dist" />
+	<property name="lib.dir" value="${project::get-base-directory()}/lib" />
+	<property name="build.dir" value="${project::get-base-directory()}/build" />
+	<property name="src.dir" value="${project::get-base-directory()}/src" />
+	<property name="test.dir" value="${project::get-base-directory()}/test" />
+	
+	<!-- nunit -->
+	<property name="nunit-console.exe" value="${tools.dir}/nunit/bin/nunit-console.exe" />
+	
+	<!-- fxcop -->
+	<property name="fxcop.exe" value="${tools.dir}/fxcop/fxcopcmd.exe" />
+	
+	
+	<!-- report files -->
+	<property name="fxcop-report.xml" value="${reports.fxcop.dir}/fxcop-report.xml" />
+	<property name="stylecop-report.xml" value="${reports.stylecop.dir}/stylecop-report.xml" />
+	<property name="stylecop-report.xsl" value="${tools.dir}/stylecop/StyleCopReport.xsl" />
+	
+</properties>

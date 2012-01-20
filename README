@@ -1,0 +1,44 @@
+-= Audio Device Control =-
+
+INTRODUCTION:
+An audio device controller interface that works against multiple recent versions of windows: XP, Vista and Windows 7.
+It allows you to select an audio device installed in your version of windows and operate on it. 
+
+You can:
+	- Get the capture or render volume level.
+	- Set the capture or render volume level.
+	- Increment the capture or render volume level.
+	- Decrement the capture or render volume level.
+	- Get capture or render mute status.
+	- Toggle capture or render mute.
+	
+Operating on render aspect of audio device is limited to Windows XP only.
+This feature is not yet implemented for XP and windows 7.
+	
+
+REQUIREMENTS:
+The project's lib folder must contain the following DLLs:
+
+Required to build the project and the use the compiled AudioDeviceControl.dll:
+	- Microsoft.DirectX (5.4.0.2904)
+	- Microsoft.DirectX.DirectSound (5.4.0.2904)
+	- WaveLibMixer (1.0.2465.20582)
+	- CoreAudioApi (1.0.0.0)
+	
+Required to test the project as part of the build process but not required to use the compiled AudioDeviceControl.dll:
+	- nunit.framework (2.5.0.9122)
+	- nunit-console-runner (2.5.0.9122)
+	- nunit.core (2.5.0.9122)
+	- nunit.util (2.5.0.9122)
+	- nunit.core.interfaces (2.5.0.9122)
+	
+Versions in parenthesis are those most recently used and known to work.
+
+
+COMPILING:
+Execute the build.bat batch file or open the project in Visual Studio and build it from there.
+Compiled AudioDeviceControl.dll will be located in the "dist" folder.
+
+
+INSTRUCTION FOR USE:
+Example implementation is located in the test console project: test/AudioDeviceConsole/Program.cs

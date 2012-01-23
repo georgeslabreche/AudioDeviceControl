@@ -13,19 +13,19 @@ You can:
 	- Toggle capture or render mute.
 	
 Operating on render aspect of audio device is limited to Windows XP only.
-This feature is not yet implemented for XP and windows 7.
+This feature is not yet implemented for Vista and windows 7.
 	
 
 REQUIREMENTS:
 The project's lib folder must contain the following DLLs:
 
-Required to build the project and the use the compiled AudioDeviceControl.dll:
+Required to build the project and to use AudioDeviceControl.dll:
 	- Microsoft.DirectX (5.4.0.2904)
 	- Microsoft.DirectX.DirectSound (5.4.0.2904)
 	- WaveLibMixer (1.0.2465.20582)
 	- CoreAudioApi (1.0.0.0)
 	
-Required to test the project as part of the build process but not required to use the compiled AudioDeviceControl.dll:
+Required to test the project as part of the build process but not required to use AudioDeviceControl.dll:
 	- nunit.framework (2.5.0.9122)
 	- nunit-console-runner (2.5.0.9122)
 	- nunit.core (2.5.0.9122)
